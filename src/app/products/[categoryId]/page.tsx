@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { notFound } from "next/navigation";
 import ProductGrid, { type Product } from "./ProductGrid";
 
@@ -50,6 +49,7 @@ export default async function CategoryPage({ params }: PageProps) {
   const categories = await getCategories();
   const category = categories.find((item) => item.slug === slug);
 
+  // ক্যাটেগরি না থাকলে not-found.tsx এর 404 পেজ দেখাবে
   if (!category) notFound();
 
   const products = await getProducts(category.slug);
@@ -73,7 +73,6 @@ export default async function CategoryPage({ params }: PageProps) {
               </p>
             </div>
           </div>
-           
         </section>
 
         {products.length === 0 ? (
@@ -84,7 +83,6 @@ export default async function CategoryPage({ params }: PageProps) {
             <p className="mt-2 text-sm text-gray-500">
               অন্য ক্যাটাগরি নির্বাচন করে দেখুন।
             </p>
-          
           </div>
         ) : (
           <ProductGrid products={products} />
