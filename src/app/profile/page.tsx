@@ -1,10 +1,54 @@
 "use client";
 
-import Image from "next/image";
 import { FormEvent, useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { authClient } from "@/lib/auth-client";
 import toast from "react-hot-toast";
+
+// ছবি থাকলে ছবি, না থাকলে (বা লোড না হলে) ইমেইলের প্রথম অক্ষর
+const Avatar = ({
+  image,
+  name,
+  email,
+  sizeClass,
+  textClass,
+  shapeClass,
+}: {
+  image?: string | null;
+  name?: string | null;
+  email?: string | null;
+  sizeClass: string;
+  textClass: string;
+  shapeClass: string;
+}) => {
+  const [imageFailed, setImageFailed] = useState(false);
+
+  useEffect(() => {
+    setImageFailed(false);
+  }, [image]);
+
+  const initial = (email || name || "U").trim().charAt(0).toUpperCase();
+
+  if (image && !imageFailed) {
+    return (
+      <img
+        src={image}
+        alt={name || "Profile"}
+        referrerPolicy="no-referrer"
+        onError={() => setImageFailed(true)}
+        className={`${sizeClass} ${shapeClass} shrink-0 object-cover`}
+      />
+    );
+  }
+
+  return (
+    <div
+      className={`${sizeClass} ${shapeClass} ${textClass} flex shrink-0 items-center justify-center bg-green-100 font-bold text-green-700`}
+    >
+      {initial}
+    </div>
+  );
+};
 
 export default function ProfilePage() {
   const router = useRouter();
@@ -85,13 +129,13 @@ export default function ProfilePage() {
 
   if (isPending || !session?.user) {
     return (
-      <main className="min-h-[70vh] bg-[#f0f5f0] px-5 py-12">
-        <div className="mx-auto max-w-[526px] animate-pulse">
-          <div className="mx-auto h-[72px] w-[72px] bg-gray-200" />
+      <main className="min-h-[70vh] bg-[#f0f5f0] px-4 py-10 sm:px-5 sm:py-12">
+        <div className="mx-auto w-full max-w-[526px] animate-pulse">
+          <div className="mx-auto h-[72px] w-[72px] rounded-full bg-gray-200" />
 
           <div className="mt-5 h-6 w-40 rounded bg-gray-200" />
 
-          <div className="mt-5 h-[86px] rounded-xl bg-gray-200" />
+          <div className="mt-5 h-[130px] rounded-xl bg-gray-200 sm:h-[86px]" />
 
           <div className="mt-4 h-[180px] rounded-xl bg-gray-200" />
         </div>
@@ -102,24 +146,18 @@ export default function ProfilePage() {
   const user = session.user;
 
   return (
-    <main className="min-h-[70vh] bg-[#f0f5f0] px-5 py-10 sm:py-12">
-      <div className="mx-auto max-w-[526px]">
+    <main className="min-h-[70vh] bg-[#f0f5f0] px-4 py-10 sm:px-5 sm:py-12">
+      <div className="mx-auto w-full max-w-[526px]">
         <div className="mb-5">
           <div className="mb-4 flex justify-center">
-            {user.image ? (
-              <Image
-                src={user.image}
-                alt={user.name || "Profile"}
-                width={72}
-                height={72}
-                unoptimized
-                className="h-[72px] w-[72px] rounded-full object-cover"
-              />
-            ) : (
-              <div className="flex h-[72px] w-[72px] items-center justify-center rounded-full bg-green-100 text-2xl font-bold text-green-700">
-                {(user.name || user.email || "U").charAt(0).toUpperCase()}
-              </div>
-            )}
+            <Avatar
+              image={user.image}
+              name={user.name}
+              email={user.email}
+              sizeClass="h-[72px] w-[72px]"
+              textClass="text-2xl"
+              shapeClass="rounded-full"
+            />
           </div>
 
           <h1 className="text-xl font-bold text-[#26352b]">আমার প্রোফাইল</h1>
@@ -129,37 +167,34 @@ export default function ProfilePage() {
           </p>
         </div>
 
-        <section className="flex items-center gap-3 rounded-xl border border-[#e0e9e0] bg-[#fbfdfb] p-4 sm:gap-3">
-          {user.image ? (
-            <Image
-              src={user.image}
-              alt={user.name || "Profile"}
-              width={56}
-              height={56}
-              unoptimized
-              className="h-14 w-14 shrink-0 rounded-xl object-cover"
+        {/* User Card: মোবাইলে উপর-নিচ, sm থেকে এক সারিতে */}
+        <section className="flex flex-col gap-3 rounded-xl border border-[#e0e9e0] bg-[#fbfdfb] p-4 sm:flex-row sm:items-center">
+          <div className="flex min-w-0 flex-1 items-center gap-3">
+            <Avatar
+              image={user.image}
+              name={user.name}
+              email={user.email}
+              sizeClass="h-14 w-14"
+              textClass="text-xl"
+              shapeClass="rounded-xl"
             />
-          ) : (
-            <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-xl bg-green-100 text-xl font-bold text-green-700">
-              {(user.name || user.email || "U").charAt(0).toUpperCase()}
+
+            <div className="min-w-0 flex-1">
+              <h2 className="truncate text-sm font-semibold text-[#26352b] sm:text-base">
+                {user.name || "ব্যবহারকারী"}
+              </h2>
+
+              <p className="mt-1 break-all text-xs text-gray-500 sm:text-sm">
+                {user.email}
+              </p>
             </div>
-          )}
-
-          <div className="min-w-0 flex-1">
-            <h2 className="truncate text-sm font-semibold text-[#26352b] sm:text-base">
-              {user.name || "ব্যবহারকারী"}
-            </h2>
-
-            <p className="mt-1 break-all text-xs text-gray-500 sm:text-sm">
-              {user.email}
-            </p>
           </div>
 
           <button
             type="button"
             onClick={handleLogout}
             disabled={loggingOut}
-            className="shrink-0 rounded-lg border border-red-400 px-3 py-2 text-xs font-medium text-red-500 transition hover:bg-red-50 disabled:opacity-60 sm:px-4"
+            className="w-full shrink-0 rounded-lg border border-red-400 px-3 py-2.5 text-xs font-medium text-red-500 transition hover:bg-red-50 disabled:opacity-60 sm:w-auto sm:px-4 sm:py-2"
           >
             {loggingOut ? "অপেক্ষা করুন..." : "↪ সাইন আউট"}
           </button>
@@ -185,13 +220,13 @@ export default function ProfilePage() {
               maxLength={100}
               required
               disabled={updating}
-              className="h-9 w-full rounded-lg border border-[#e0e9e0] bg-transparent px-3 text-sm text-gray-800 outline-none transition focus:border-green-600 focus:ring-2 focus:ring-green-100 disabled:opacity-60"
+              className="h-10 w-full rounded-lg border border-[#e0e9e0] bg-transparent px-3 text-base text-gray-800 outline-none transition focus:border-green-600 focus:ring-2 focus:ring-green-100 disabled:opacity-60 sm:h-9 sm:text-sm"
             />
 
             <button
               type="submit"
               disabled={updating}
-              className="mt-3 flex h-8 w-full items-center justify-center rounded-lg bg-[#07883d] text-xs font-medium text-white shadow-[0_2px_3px_rgba(0,0,0,0.2)] transition hover:bg-green-700 active:scale-[0.99] disabled:cursor-not-allowed disabled:opacity-60"
+              className="mt-3 flex h-10 w-full items-center justify-center rounded-lg bg-[#07883d] text-sm font-medium text-white shadow-[0_2px_3px_rgba(0,0,0,0.2)] transition hover:bg-green-700 active:scale-[0.99] disabled:cursor-not-allowed disabled:opacity-60 sm:h-8 sm:text-xs"
             >
               {updating ? "আপডেট হচ্ছে..." : "আপডেট"}
             </button>

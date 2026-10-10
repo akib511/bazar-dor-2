@@ -9,7 +9,7 @@ icon: string;
 
 const NavLink = async () => {
 const res = await fetch(
-"https://api.abcz.workers.dev/api/bazardor/categories",
+"https://openapi.programming-hero.com/api/bazardor/categories",
 {
 next: { revalidate: 3600 },
 }

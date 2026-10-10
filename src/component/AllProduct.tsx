@@ -21,7 +21,7 @@ interface Product {
 
 const AllProducts = async () => {
   const res = await fetch(
-    "https://api.abcz.workers.dev/api/bazardor/products",
+    "https://openapi.programming-hero.com/api/bazardor/products",
     {
       cache: "no-store",
     },
@@ -65,11 +65,11 @@ const AllProducts = async () => {
       ) : (
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {products.map((product) => (
-           <Link
-            key={product.id}
-            href={`/product/${encodeURIComponent(product.slug)}`}
-            className="group block rounded-2xl border border-green-100 bg-white p-5 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-green-200 hover:shadow-lg"
-          >
+            <Link
+              key={product.id}
+              href={`/product/${encodeURIComponent(product.slug)}`}
+              className="group block rounded-2xl border border-green-100 bg-white p-5 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-green-200 hover:shadow-lg"
+            >
               <div className="flex items-start justify-between">
                 <div className="flex items-center gap-3">
                   <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-green-50 text-2xl transition-transform duration-300 group-hover:scale-110">

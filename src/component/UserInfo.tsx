@@ -98,23 +98,27 @@ const Userinfo = () => {
     }
   };
 
+  // Session যাচাইয়ের সময় Skeleton
   if (isPending) {
-    return <div className="h-11 w-36 animate-pulse rounded-xl bg-gray-100" />;
+    return (
+      <div className="h-11 w-full animate-pulse rounded-xl bg-gray-100 sm:w-36" />
+    );
   }
 
+  // Login না করা থাকলে
   if (!session?.user) {
     return (
-      <div className="flex items-center gap-3">
+      <div className="flex w-full items-center gap-3 sm:w-auto">
         <Link
           href="/signIn"
-          className="rounded-xl border border-green-600 bg-white px-5 py-2.5 text-sm font-semibold text-green-600 transition-all duration-200 hover:bg-green-600 hover:text-white active:scale-95"
+          className="flex-1 rounded-xl border border-green-600 bg-white px-4 py-2.5 text-center text-sm font-semibold text-green-600 transition-all duration-200 hover:bg-green-600 hover:text-white active:scale-95 sm:flex-none sm:px-5"
         >
           সাইন ইন
         </Link>
 
         <Link
           href="/signUp"
-          className="rounded-xl bg-green-600 px-5 py-2.5 text-sm font-semibold text-white shadow-md transition-all duration-200 hover:bg-green-700 hover:shadow-lg active:scale-95"
+          className="flex-1 rounded-xl bg-green-600 px-4 py-2.5 text-center text-sm font-semibold text-white shadow-md transition-all duration-200 hover:bg-green-700 hover:shadow-lg active:scale-95 sm:flex-none sm:px-5"
         >
           সাইন আপ
         </Link>
@@ -161,8 +165,7 @@ const Userinfo = () => {
       </button>
 
       {isOpen && (
-        <div className="absolute right-0 top-full z-50 mt-3 w-72 overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-xl">
-        
+        <div className="absolute right-0 top-full z-50 mt-3 w-72 max-w-[calc(100vw-2rem)] overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-xl">
           <div className="flex items-center gap-3 border-b border-gray-100 p-4">
             <Avatar
               image={user.image}
