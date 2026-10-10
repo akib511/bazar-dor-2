@@ -5,6 +5,7 @@ import Header from "@/component/Header";
 import Marquee from "@/component/Marquee";
 import { Suspense } from "react";
 import { Toaster } from "react-hot-toast";
+import Footer from "@/component/Footer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -34,6 +35,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         </Suspense>
         {children}
         <Toaster />
+        <Footer />
         </body>
     </html>
   );
