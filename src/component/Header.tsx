@@ -1,6 +1,6 @@
 import Image from "next/image";
 import logo from "@/Assets/logo-icon.png";
-// import CurrentDate from "./CurrentDate";
+import CurrentDate from "./CurrentDate";
 import NavLink from "./NavLink";
 import { Suspense } from "react";
 
@@ -24,7 +24,7 @@ const Header = () => {
           {/* Title + Date */}
           <div>
             <h1 className="text-2xl font-bold text-gray-900">বাজার দর</h1>
-            {/* <CurrentDate /> */}
+            <CurrentDate />
           </div>
         </div>
 
