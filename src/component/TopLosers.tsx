@@ -54,9 +54,9 @@ const TopLosers = async () => {
 
       <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {topLosers.map((product) => (
-           <Link
+            <Link
             key={product.id}
-            href={`/product/${product.id}`}
+            href={`/product/${encodeURIComponent(product.slug)}`}
             className="group block rounded-2xl border border-green-100 bg-white p-5 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-green-200 hover:shadow-lg"
           >
             <div className="flex items-start justify-between">

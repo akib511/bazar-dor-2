@@ -20,9 +20,12 @@ const Banner = () => {
             বিস্তারিত, গড়, সর্বনিম্ন-সর্বাধিক এবং দামের পরিবর্তন এক জায়গায়।
           </p>
 
-          <button className="mt-6 rounded-xl bg-green-600 px-5 py-2.5 text-sm font-semibold text-white shadow-md transition-all duration-200 hover:bg-green-700 hover:shadow-lg active:scale-95">
-            সব পণ্য দেখুন
-          </button>
+         <a
+  href="#AllProducts"
+  className="mt-6 inline-block rounded-xl bg-green-600 px-5 py-2.5 text-sm font-semibold text-white shadow-md transition-all duration-200 hover:bg-green-700 hover:shadow-lg active:scale-95"
+>
+  সব পণ্য দেখুন ↓
+</a>
         </div>
 
         <div className="relative h-[280px] w-full sm:h-[350px] md:h-[400px]">

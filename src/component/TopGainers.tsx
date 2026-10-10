@@ -27,7 +27,6 @@ const TopGainers = async () => {
   }
 
   const products: Product[] = await res.json();
-  console.log(products)
 
   const topGainers = products
     .filter((product) => product.change.dir === "up")
@@ -53,7 +52,7 @@ const TopGainers = async () => {
         {topGainers.map((product) => (
           <Link
             key={product.id}
-            href={`/product/${product.id}`}
+            href={`/product/${encodeURIComponent(product.slug)}`}
             className="group block rounded-2xl border border-green-100 bg-white p-5 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-green-200 hover:shadow-lg"
           >
             <div className="flex items-start justify-between">
