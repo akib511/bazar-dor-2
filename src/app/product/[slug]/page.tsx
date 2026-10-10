@@ -2,6 +2,8 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Suspense } from "react";
 import ProductDetailsLoading from "./ProductDetailsLoading";
+import { auth } from "@/lib/auth";
+import { headers } from "next/headers";
 
 interface Market {
   market: string;
@@ -44,6 +46,18 @@ const unitBn: Record<string, string> = {
 };
 
 async function ProductDetails({ params }: PageProps) {
+ 
+  const session = await auth.api.getSession({
+    headers: await headers(),
+  });
+
+  if (!session) {
+    const { redirect } = await import("next/navigation");
+    const { slug } = await params;
+
+    redirect(`/signIn?callbackURL=${encodeURIComponent(`/products/${slug}`)}`);
+  }
+
   const { slug: rawSlug } = await params;
   const slug = decodeURIComponent(rawSlug);
 
