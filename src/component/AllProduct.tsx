@@ -120,7 +120,7 @@ const AllProducts = async () => {
                 </div>
               </div>
 
-              <div className="mt-4 border-t border-gray-100 pt-3 text-sm font-medium text-green-600 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+              <div className=" border-t border-gray-100 pt-3 text-sm font-medium text-green-600 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
                 বিস্তারিত দেখুন →
               </div>
             </Link>

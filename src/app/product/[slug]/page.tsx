@@ -46,7 +46,6 @@ const unitBn: Record<string, string> = {
 };
 
 async function ProductDetails({ params }: PageProps) {
- 
   const session = await auth.api.getSession({
     headers: await headers(),
   });
@@ -108,7 +107,7 @@ async function ProductDetails({ params }: PageProps) {
           <span>›</span>
 
           <Link
-            href={`/category/${product.category}`}
+            href={`/products/${encodeURIComponent(product.category)}`}
             className="transition hover:text-green-700"
           >
             {product.categoryNameBn}
@@ -218,7 +217,9 @@ async function ProductDetails({ params }: PageProps) {
                 {bn(averagePrice)} টাকা
               </p>
 
-              <p className="mt-1 text-xs text-gray-500">প্রতি {unit}-এর হিসাবে</p>
+              <p className="mt-1 text-xs text-gray-500">
+                প্রতি {unit}-এর হিসাবে
+              </p>
             </div>
           </div>
         </section>

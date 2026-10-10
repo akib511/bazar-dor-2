@@ -66,7 +66,7 @@ const TopLosers = async () => {
                 </div>
 
                 <div>
-                  <h3 className="font-bold text-gray-900">{product.nameBn}</h3>
+                  <h3 className="font-bold text-gray-900 transition-colors group-hover:text-green-600">{product.nameBn}</h3>
 
                   <span className="text-sm text-gray-500">
                      {unitBn[product.unit]}
@@ -95,7 +95,7 @@ const TopLosers = async () => {
                 </p>
               </div>
             </div>
-            <div className="mt-4 border-t border-gray-100 pt-3 text-sm font-medium text-green-600 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+            <div className="border-t border-gray-100 pt-3 text-sm font-medium text-green-600 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
               বিস্তারিত দেখুন →
             </div>
           </Link>
