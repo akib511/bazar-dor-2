@@ -43,7 +43,7 @@ const AllProducts = async () => {
   const bn = (number: number) => number.toLocaleString("bn-BD");
 
   return (
-    <section className="mx-auto mt-8 w-full max-w-[1150px] ">
+    <section className="mx-auto mt-8 w-full not-[]: max-w-[1150px] ">
       <section
         id="AllProducts"
         className="mx-auto mt-8 w-full max-w-[1150px] px-4"

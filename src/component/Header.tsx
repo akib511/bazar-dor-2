@@ -7,10 +7,10 @@ import { Suspense } from "react";
 
 const Header = () => {
   return (
-    <header className="mx-auto w-full max-w-[1200px] px-4 py-4 sm:px-6 sm:py-5 lg:px-8">
+    <header className="mx-auto w-full max-w-287.5 px-4 py-4 sm:px-6 sm:py-5 lg:px-8">
       <div className="flex flex-wrap items-center justify-between gap-3 sm:flex-nowrap">
         <div className="flex min-w-0 items-center gap-2 sm:gap-4">
-          <div className="flex h-10 w-10 shrink-0 items-center justify-center overflow-hidden rounded-xl bg-green-600 sm:h-[50px] sm:w-[50px] sm:rounded-2xl">
+          <div className="flex h-10 w-10 shrink-0 items-center justify-center overflow-hidden rounded-xl bg-green-600 sm:h-12.5 sm:w-12.5 sm:rounded-2xl">
             <Image
               src={logo}
               alt="বাজার দর"

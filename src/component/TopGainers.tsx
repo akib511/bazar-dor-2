@@ -40,7 +40,7 @@ const TopGainers = async () => {
   const bn = (number: number) => number.toLocaleString("bn-BD");
 
   return (
-    <section className="mx-auto mt-8 w-full max-w-[1150px]">
+    <section className="mx-auto mt-8 w-full max-w-287.5">
       <div className="mb-5">
         <h2 className="text-2xl font-bold text-gray-900">
           <span className="font-bold text-red-500">▲ </span>

@@ -4,7 +4,7 @@ import heroImg from "@/Assets/bazar-hero.png";
 
 const Banner = () => {
   return (
-    <section className="mx-auto w-full max-w-[1200px] px-4 pt-5 sm:px-6 sm:pt-8 lg:px-8">
+    <section className="mx-auto w-full max-w-287.5 px-4 pt-5 sm:px-6 sm:pt-8 lg:px-8">
       {" "}
       <div className="grid items-center overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm sm:rounded-3xl md:grid-cols-2">
         {" "}
@@ -30,7 +30,7 @@ const Banner = () => {
             <span aria-hidden="true">↓</span>
           </a>
         </div>
-        <div className="relative h-[220px] w-full sm:h-[300px] md:h-[350px] lg:h-[420px]">
+        <div className="relative h-55 w-full sm:h-75 md:h-87.5 lg:h-105">
           <Image
             src={heroImg}
             alt="বাজারের ছবি"

@@ -45,7 +45,7 @@ const TopLosers = async () => {
   const bn = (number: number) => number.toLocaleString("bn-BD");
 
   return (
-    <section className="mx-auto w-full max-w-[1150px] mt-8">
+    <section className="mx-auto w-full max-w-287.5 mt-8">
       <div className="mb-5 pt-8">
         <h2 className="text-2xl font-bold text-gray-900">
           <span className="font-bold text-green-500">▼ </span>আজ দাম কমেছে

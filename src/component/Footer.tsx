@@ -1,8 +1,8 @@
 
 const Footer = () => {
   return (
-    <footer className="border-t border-white/100 bg-white">
-      <div className="mx-auto flex max-w-[1200px] flex-col items-start justify-between gap-3 px-5 py-5 sm:flex-row sm:items-center sm:px-8">
+    <footer className="border-t border-white bg-white">
+      <div className="mx-auto flex max-w-287.5 flex-col items-start justify-between gap-3 px-5 py-5 sm:flex-row sm:items-center sm:px-8">
         {/* Left: Website Name */}
         <p className="text-sm font-semibold leading-6 text-black">
           বাজার দর
