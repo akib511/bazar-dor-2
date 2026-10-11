@@ -1,107 +1,144 @@
 # বাজার দর | BazarDor
 
-**বাজার দর** is a Bengali-language web application that helps users explore the prices of essential daily commodities in one place. It provides a simple and user-friendly way to check product prices and understand price changes.
+### প্রতিদিনের প্রয়োজনীয় পণ্যের দাম এক নজরে
 
-The project is built with modern web technologies to deliver a responsive experience across mobile, tablet, and desktop devices.
+**BazarDor** is a Bengali-language web application designed to help users explore the prices of essential daily products in one place. It provides product information, price comparisons, price change indicators, and a responsive interface for a convenient browsing experience.
+
+---
 
 ## About the Project
 
-BazarDor aims to make everyday market price information easier to access. Users can browse different products, view their current prices, compare price changes, and create an account to access the website's authentication features.
+BazarDor aims to make information about everyday market prices easier to access. Users can explore essential products, check current prices, view price changes, and navigate product categories through a clean and user-friendly interface.
+
+The application also includes user authentication, allowing users to sign in using supported authentication methods.
+
+## Features
+
+* **Product Price Listing** — Browse essential daily products and their prices.
+* **Price Change Indicators** — Identify price increases and decreases.
+* **Product Details** — Explore additional information about individual products.
+* **Category-Based Navigation** — Find products through relevant categories.
+* **User Authentication** — Sign up and sign in using email and password, Google, or GitHub when configured.
+* **Responsive Design** — Enjoy a user-friendly experience on desktop, tablet, and mobile devices.
+* **Bengali Interface** — Access market information through a Bengali-language interface.
 
 ## Technologies Used
 
-* **Next.js** — React framework for building the web application
-* **React** — Component-based user interface
-* **TypeScript** — Type-safe JavaScript development
-* **Tailwind CSS** — Responsive styling and UI design
-* **Better Auth** — User authentication
-* **MongoDB** — Database for authentication-related data
-* **REST API** — Fetching product and market price information
+| Technology   | Purpose                                    |
+| ------------ | ------------------------------------------ |
+| Next.js      | React framework and application routing    |
+| React        | User interface development                 |
+| TypeScript   | Type-safe development                      |
+| Tailwind CSS | Responsive styling                         |
+| Better Auth  | Authentication and session management      |
+| MongoDB      | Database                                   |
+| REST API     | Product and category data                  |
+| Vercel       | Deployment and hosting                     |
+| Git & GitHub | Version control and source code management |
 
-## Key Features
+## Live Demo
 
-### 1. Product Price Listing
-
-Browse a collection of essential daily commodities and view their current prices in Bengali.
-
-### 2. Price Change Indicators
-
-Quickly identify whether a product's price has increased, decreased, or remained unchanged.
-
-### 3. Product Details
-
-Open individual product pages to explore more information about specific products.
-
-### 4. User Authentication
-
-Create an account or sign in using email and password, Google, or GitHub authentication.
-
-### 5. Responsive User Interface
-
-Access the application through mobile phones, tablets, and desktop devices with a responsive layout.
+**Live Website:** (https://bazar-dor-2-snowy.vercel.app/)
 
 ## Getting Started
 
-Follow these steps to run the project locally.
+Follow these instructions to run BazarDor locally.
 
 ### Prerequisites
 
-Make sure you have the following installed:
+Make sure you have installed:
 
 * Node.js
 * npm
 * Git
 
-### Installation
+### 1. Clone the Repository
 
-**1. Clone the repository**
-
-```bash
-git clone YOUR_GITHUB_REPOSITORY_URL
-```
-
-**2. Navigate to the project directory**
+Replace `akib511` with your GitHub username and `bazar-dor-2` with your actual repository name.
 
 ```bash
-cd bazar-dor
+git clone https://github.com/akib511/bazar-dor-2.git
 ```
 
-**3. Install dependencies**
+### 2. Navigate to the Project Directory
+
+```bash
+cd YOUR_REPOSITORY_NAME
+```
+
+### 3. Install Dependencies
 
 ```bash
 npm install
 ```
 
-**4. Configure environment variables**
 
-Create a `.env.local` file in the project root and add the environment variables required by the application.
 
-For example:
+**Important:** These variable names must match your actual application configuration. Remove any variables for providers you do not use, and add any additional variables your project requires. Never commit real credentials or secret values to GitHub.
 
-```env
-MONGO_DB_URL=your_mongodb_connection_string
-GOOGLE_CLIENT_ID=your_google_client_id
-GOOGLE_CLIENT_SECRET=your_google_client_secret
-```
-
-Configure any additional variables required by your project and authentication providers. Never commit real credentials or secrets to GitHub.
-
-**5. Start the development server**
+### 4. Start the Development Server
 
 ```bash
 npm run dev
 ```
 
-Open http://localhost:3000 in your browser.
+Open http://localhost:3000 in your browser to view the application.
 
-## Project Status
+## Project Structure
 
-BazarDor is an ongoing web development project. Features and improvements may be added as development continues.
+The project follows the Next.js App Router structure.
+
+```text
+bazar-dor/
+├── public/
+├── src/
+│   ├── app/
+│   ├── component/
+│   └── lib/
+├── .env.local
+├── .gitignore
+├── next.config.ts
+├── package.json
+├── tsconfig.json
+└── README.md
+```
+
+*Note: The structure above is illustrative. Your actual folders and files may differ.*
+
+## Authentication
+
+BazarDor uses Better Auth for user authentication.
+
+Depending on the configured providers, users can authenticate using:
+
+* Email and password
+* Google
+* GitHub
+
+Social authentication requires valid provider credentials and correctly configured callback URLs. Production environment variables must also be configured in the hosting platform.
+
+## Deployment
+
+The application is deployed using Vercel.
+
+To deploy your own version:
+
+1. Push the project to a GitHub repository.
+2. Import the repository into Vercel.
+3. Configure the required environment variables.
+4. Set up the authentication provider credentials and callback URLs for your deployment domain.
+5. Deploy the application and verify its functionality.
 
 ## Disclaimer
 
-Market prices may vary depending on location, seller, and market conditions. Displayed prices should be treated as indicative information rather than guaranteed prices.
+Market prices may vary depending on location, market conditions, availability, and the time of collection. Always verify prices with local sellers before making purchasing decisions.
 
 ## Author
 
-Developed as a web development project using Next.js, TypeScript, and modern web technologies.
+**Shahariar Hossen Akib**
+
+Frontend Developer | React | Next.js | TypeScript
+
+---
+
+*Built to make everyday market price information easier to explore.*
